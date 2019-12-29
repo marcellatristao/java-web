@@ -1,56 +1,52 @@
 package cursojava.executavel;
 
+import javax.swing.JOptionPane;
+
 import cursojava.classes.Aluno;
 
 public class PrimeiraClasseJava {
 
-	public static void main(String[] args) {	
-		
+	public static void main(String[] args) {
+
 		// new Aluno() é uma instancia/ criação de um objeto!!
+
+		// aluno1 é uma referência para o aluno
+
 		
-		//aluno1 é uma referência para o aluno
-	
-		Aluno aluno1 = new Aluno(); /*Objeto aluno 1*/
-		Aluno aluno2 = new Aluno(); /*Objeto aluno 2*/
-	
-		aluno1.setNome("Marcella Canedo Tristão");
-		aluno1.setIdade(19);
-		aluno1.setDataNascimento("02/05/2000");
-		aluno1.setRegistroGeral("0000000");
-		aluno1.setNumeroCpf("000-000-000-00");
-		aluno1.setNomeMae("Maria");
-		aluno1.setNomePai("João");
-		aluno1.setDataMatricula("29/12/2019");
-		aluno1.setNomeEscola("Auxiliadora");
-		aluno1.setSerieMatriculada("5ª");
-		aluno1.setNota1(84);
-		aluno1.setNota2(73);
-		aluno1.setNota3(93.9);
-		aluno1.setNota4(56);
-		
-		System.out.println("NOME COMPLETO: " +aluno1.getNome() + "\nIDADE: " +aluno1.getIdade() + 
-				"\nDATA NASCIMENTO: " +aluno1.getDataNascimento() + "\nREGISTRO GERAL: " +aluno1.getRegistroGeral() 
-				+ "\nNUMERO CPF: " +aluno1.getNumeroCpf() + "\nNOME MAE: " +aluno1.getNomeMae() + "\nNOME PAI: " +aluno1.getNomePai() +
-				"\nDATA MATRICULA: " +aluno1.getDataMatricula() + "\nNOME ESCOLA" + "\nSERIE MATRICULADA: " +aluno1.getSerieMatriculada());	
-		
-		System.out.println("\nMEDIA DA NOTA: " +aluno1.getMediaNota()); //CHAMADA DE MÉTODO
-		System.out.println("RESULTADO: "+ (aluno1.getAprovado() ? "Aprovado": "Reprovado"));
-		System.out.println("\n\n------------------------------\n");
-		
-		/*
-		 * aluno2.setNome("Pedro da Silva"); aluno2.setIdade(16);
-		 * aluno2.setDataNascimento("05/02/2000"); aluno2.setRegistroGeral("0000000");
-		 * aluno2.setNumeroCpf("000-000-000-00"); aluno2.setNomeMae("Maria");
-		 * aluno2.setNomePai("João"); aluno2.setDataMatricula("10/02/2019");
-		 * aluno2.setNomeEscola("Auxiliadora"); aluno2.setSerieMatriculada("6ª");
-		 * 
-		 * System.out.println("NOME COMPLETO: " +aluno2.getNome() + "\nIDADE: "
-		 * +aluno2.getIdade() + "\nDATA NASCIMENTO: " +aluno2.getDataNascimento() +
-		 * "\nREGISTRO GERAL: " +aluno2.getRegistroGeral() + "\nNUMERO CPF: "
-		 * +aluno2.getNumeroCpf() + "\nNOME MAE: " +aluno2.getNomeMae() + "\nNOME PAI: "
-		 * +aluno2.getNomePai() + "\nDATA MATRICULA: " +aluno2.getDataMatricula() +
-		 * "\nNOME ESCOLA" + "\nSERIE MATRICULADA: " +aluno2.getSerieMatriculada());
-		 */	
-		
+		  Aluno aluno1 = new Aluno(); /*Objeto aluno 1*/
+		  
+		  String nome = JOptionPane.showInputDialog("NOME: "); String idade =
+		  JOptionPane.showInputDialog("IDADE: "); String dataNascimento =
+		  JOptionPane.showInputDialog("DATA DE NASCIMENTO: "); String registroGeral =
+		  JOptionPane.showInputDialog("RG: "); String numeroCpf =
+		  JOptionPane.showInputDialog("CPF: "); String nomeMae =
+		  JOptionPane.showInputDialog("NOME DA MÃE: "); String nomePai =
+		  JOptionPane.showInputDialog("NOME DO PAI: " ); String dataMatricula =
+		  JOptionPane.showInputDialog("DATA MATRICULA: "); String nomeEscola =
+		  JOptionPane.showInputDialog("NOME DA ESCOLA: "); String serieMatriculada =
+		  JOptionPane.showInputDialog("SERIE MATRICULADA: ");
+		  
+		  String nota1 = JOptionPane.showInputDialog("NOTA 1: "); String nota2 =
+		  JOptionPane.showInputDialog("NOTA 2: "); String nota3 =
+		  JOptionPane.showInputDialog("NOTA 3: "); String nota4 =
+		  JOptionPane.showInputDialog("NOTA 4: ");
+		  
+		  aluno1.setNome(nome); aluno1.setIdade(Integer.valueOf(idade));
+		  aluno1.setDataNascimento(dataNascimento);
+		  aluno1.setRegistroGeral(registroGeral); 
+		  aluno1.setNumeroCpf(numeroCpf);
+		  aluno1.setNomeMae(nomeMae); aluno1.setNomePai(nomePai);
+		  aluno1.setDataMatricula(dataMatricula); 
+		  aluno1.setNomeEscola(nomeEscola);
+		  aluno1.setSerieMatriculada(serieMatriculada);
+		  aluno1.setNota1(Double.parseDouble(nota1));
+		  aluno1.setNota2(Double.parseDouble(nota2));
+		  aluno1.setNota3(Double.parseDouble(nota3));
+		  aluno1.setNota4(Double.parseDouble(nota4));
+		 
+		  System.out.println(aluno1.toString()); /*Descrição d objeto na memória*/
+		  System.out.println("Media do aluno: " +aluno1.getMediaNota());
+		  
+		  
 	}
 }
