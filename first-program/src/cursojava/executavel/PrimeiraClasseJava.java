@@ -1,24 +1,30 @@
 package cursojava.executavel;
 
+import cursojava.classes.Aluno;
+
 public class PrimeiraClasseJava {
-	
-	/*Variável gobal é acessivel a todos e o seu valor é compartilhado*/
-	static int maiorIdadeGlobal = 30;
-	
-	/*Main é um método auto executável em Java*/
-	public static void main(String[] args) {
+
+	public static void main(String[] args) {	
 		
-		/*Variavel local pois pertence somente a este método e o valor fica dentro do método*/
-		int maiorIdade = 18;
-		System.out.println("Valor da variável local = " + maiorIdade);
-		System.out.println("Valor da variável global = " + maiorIdadeGlobal);
-		metodo2();
-	}
-	
-	public static void metodo2() {
-		int mediaAno =50;
-		System.out.println("Valor da variável global = " + maiorIdadeGlobal);
+		// new Aluno() é uma instancia/ criação de um objeto!!
 		
+		//aluno1 é uma referência para o aluno
+		
+		Aluno aluno1 = new Aluno(); /*João*/
+		
+		aluno1.nome = "João";
+		aluno1.idade =16;
+		aluno1.dataNascimento="21-02-2001";
+		
+		System.out.println("NOME: " + aluno1.nome + "\nIDADE: " + aluno1.idade +
+				"\nDATA NASCIMENTO: " + aluno1.dataNascimento);
+		
+		Aluno aluno2 = new Aluno(); /*Pedro*/
+		
+		Aluno aluno3 = new Aluno(); /*Alex*/
+		
+		Aluno aluno4 = new Aluno("Maria");
+		
+		Aluno aluno5 = new Aluno("José", 40);
 	}
-	
 }
