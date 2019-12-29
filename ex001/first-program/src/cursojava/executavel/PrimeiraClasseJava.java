@@ -23,7 +23,7 @@ public class PrimeiraClasseJava {
 		aluno1.setDataMatricula("29/12/2019");
 		aluno1.setNomeEscola("Auxiliadora");
 		aluno1.setSerieMatriculada("5ª");
-		aluno1.setNota1(44);
+		aluno1.setNota1(84);
 		aluno1.setNota2(73);
 		aluno1.setNota3(93.9);
 		aluno1.setNota4(56);
@@ -34,13 +34,7 @@ public class PrimeiraClasseJava {
 				"\nDATA MATRICULA: " +aluno1.getDataMatricula() + "\nNOME ESCOLA" + "\nSERIE MATRICULADA: " +aluno1.getSerieMatriculada());	
 		
 		System.out.println("\nMEDIA DA NOTA: " +aluno1.getMediaNota()); //CHAMADA DE MÉTODO
-		
-		if(aluno1.getaprovado() == false) {
-			System.out.println("Aluno reprovado!");	
-		}else {
-			System.out.println("Aluno aprovado!");
-		}
-		
+		System.out.println("RESULTADO: "+ (aluno1.getAprovado() ? "Aprovado": "Reprovado"));
 		System.out.println("\n\n------------------------------\n");
 		
 		/*

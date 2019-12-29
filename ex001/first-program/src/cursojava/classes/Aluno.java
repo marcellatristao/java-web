@@ -162,18 +162,21 @@ public class Aluno {
 		return aprovado;
 	}
 
+	
+	/*      ---------- Sempre separar os processos em métodos ----------- */
+	
+	
 	/*Método que retorna a média do aluno*/
 	public double getMediaNota() {
 		return(nota1 + nota2 + nota3 + nota4) / 4;
 	}
 	
 	public boolean getAprovado() {
-		if(getMediaNota() >= 70) {
-			System.out.println(aprovado = true);
+		double media = this.getMediaNota();
+		if(media >= 60) {
+			return true;
 		}else {
-			System.out.println(aprovado = false);
+			return false;
 		}
-		return aprovado;
 	}
-	
 }
