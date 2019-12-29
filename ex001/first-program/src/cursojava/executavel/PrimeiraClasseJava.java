@@ -31,7 +31,8 @@ public class PrimeiraClasseJava {
 		  JOptionPane.showInputDialog("NOTA 3: "); String nota4 =
 		  JOptionPane.showInputDialog("NOTA 4: ");
 		  
-		  aluno1.setNome(nome); aluno1.setIdade(Integer.valueOf(idade));
+		  aluno1.setNome(nome); 
+		  aluno1.setIdade(Integer.valueOf(idade));
 		  aluno1.setDataNascimento(dataNascimento);
 		  aluno1.setRegistroGeral(registroGeral); 
 		  aluno1.setNumeroCpf(numeroCpf);
@@ -46,7 +47,5 @@ public class PrimeiraClasseJava {
 		 
 		  System.out.println(aluno1.toString()); /*Descrição d objeto na memória*/
 		  System.out.println("Media do aluno: " +aluno1.getMediaNota());
-		  
-		  
 	}
 }

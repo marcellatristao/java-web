@@ -182,11 +182,11 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
-				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
-				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculada="
-				+ serieMatriculada + ", nota1=" + nota1 + ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4
-				+ ", aprovado=" + aprovado + "]";
+		return "Nome: " + nome + "\nIdade: " + idade + "\nData de nascimento: " + dataNascimento + "\nRegistro Geral: "
+				+ registroGeral + "\nNúmero CPF: " + numeroCpf + "\nNome da Mãe:" + nomeMae + "\nNome do Pai: " + nomePai
+				+ "\nData da Matrícula: " + dataMatricula + "\nNome da Escola: " + nomeEscola + "\nSerie Matriculada: "
+				+ serieMatriculada + "\nNota 1: " + nota1 + "\nNota 2: " + nota2 + "\nNota 3: " + nota3 + "\nNota 4: " + nota4
+				+ "\nResultado Final =" + aprovado + "";
 	}
 	
 }
