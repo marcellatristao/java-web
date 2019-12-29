@@ -2,23 +2,42 @@ package classes;
 
 public class carro {
 
-	/*Escrever os atributos do carro*/
-	private String placa;
-	private String chassi;
-	private String marca;
-	private String modelo;
-	private String ano;
-	private String cor;
-	private String velocidade;
-	private int valor;
+	//Atributos do carro
+	String placa;
+	String cor;
+	String valor;
 	
-	/*Fazer os construtores*/
 	
-	public carro() {
+	
+	//Construtor
+	public void carro() {
 		
 	}
 	
 	
-	/*Métodos getters e setters*/
+	//Getters and setters
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+
+	public String getValor() {
+		return valor;
+	}
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
 	
 }
