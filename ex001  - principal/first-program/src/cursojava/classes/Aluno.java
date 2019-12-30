@@ -13,31 +13,23 @@ public class Aluno {
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculada;
-	private double nota1;
-	private double nota2;
-	private double nota3;
-	private double nota4;
 	private boolean aprovado;
+	
+	private Disciplina disciplina = new Disciplina();
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
+	
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+	
 	
 	//Sempre que o new é utilizado o comando abaixo é criado vazio por padrão
 	
 	public Aluno() { /*Cria os dados na memoria -  Sendo padrão do java */
 		
 	}
-	
-	public Aluno(String nomePadrao) {
-		nome = nomePadrao;
-	}
-	
-	public Aluno (String nomePadrao,int idadePadrao) {
-		nome = nomePadrao;
-		idade = idadePadrao;
-	}
-	
-	/*Métodos setters e getters*/
-	
-	//SET = adicionar ou receber os atributo
-	//GET = resgatar ou obter o valor do atributo
 	
 	/*Recebendo dados*/
 	public void setNome(String nome) {
@@ -121,42 +113,10 @@ public class Aluno {
 		this.serieMatriculada = serieMatriculada;
 	}
 
-	public double getNota1() {
-		return nota1;
-	}
-
-	public void setNota1(double nota1) {
-		this.nota1 = nota1;
-	}
-
-	public double getNota2() {
-		return nota2;
-	}
-
-	public void setNota2(double nota2) {
-		this.nota2 = nota2;
-	}
-
-	public double getNota3() {
-		return nota3;
-	}
-
-	public void setNota3(double nota3) {
-		this.nota3 = nota3;
-	}
-
-	public double getNota4() {
-		return nota4;
-	}
-
-	public void setNota4(double nota4) {
-		this.nota4 = nota4;
-	}
 	
 	public void setAprovado(boolean aprovado) {
 		this.aprovado = aprovado;
 	}
-	
 	
 	public boolean getaprovado() {
 		return aprovado;
@@ -168,7 +128,7 @@ public class Aluno {
 	
 	/*Método que retorna a média do aluno*/
 	public double getMediaNota() {
-		return(nota1 + nota2 + nota3 + nota4) / 4;
+		return(disciplina.getNota1() + disciplina.getNota2() + disciplina.getNota3() + disciplina.getNota4()) / 4;
 	}
 	
 	public boolean getAprovado() {
@@ -182,11 +142,24 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Nome: " + nome + "\nIdade: " + idade + "\nData de nascimento: " + dataNascimento + "\nRegistro Geral: "
-				+ registroGeral + "\nNúmero CPF: " + numeroCpf + "\nNome da Mãe:" + nomeMae + "\nNome do Pai: " + nomePai
-				+ "\nData da Matrícula: " + dataMatricula + "\nNome da Escola: " + nomeEscola + "\nSerie Matriculada: "
-				+ serieMatriculada + "\nNota 1: " + nota1 + "\nNota 2: " + nota2 + "\nNota 3: " + nota3 + "\nNota 4: " + nota4
-				+ "\nResultado Final =" + aprovado + "";
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
+				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculada="
+				+ serieMatriculada + ", aprovado=" + aprovado + ", disciplina=" + disciplina + "]";
 	}
+
+	/*
+	 * @Override public int hashCode() { final int prime = 31; int result = 1;
+	 * result = prime * result + ((nome == null) ? 0 : nome.hashCode()); result =
+	 * prime * result + ((numeroCpf == null) ? 0 : numeroCpf.hashCode()); return
+	 * result; }
+	 * 
+	 * @Override public boolean equals(Object obj) { if (this == obj) return true;
+	 * if (obj == null) return false; if (getClass() != obj.getClass()) return
+	 * false; Aluno other = (Aluno) obj; if (nome == null) { if (other.nome != null)
+	 * return false; } else if (!nome.equals(other.nome)) return false; if
+	 * (numeroCpf == null) { if (other.numeroCpf != null) return false; } else if
+	 * (!numeroCpf.equals(other.numeroCpf)) return false; return true; }
+	 */
 	
 }
