@@ -2,13 +2,12 @@ package classes;
 
 public class Disciplina {
 
-	String disciplina1;
-	String disciplina2;
-	String disciplina3;
-	double n1;
-	double n2;
-	double n3;
-	
+	private String disciplina1;
+	private double n1;
+	private String disciplina2;
+	private double n2;
+	private String disciplina3;
+	private double n3;
 	
 	public String getDisciplina1() {
 		return disciplina1;
@@ -46,6 +45,7 @@ public class Disciplina {
 	public void setN3(double n3) {
 		this.n3 = n3;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -94,4 +94,12 @@ public class Disciplina {
 			return false;
 		return true;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Disciplina [disciplina1=" + disciplina1 + ", n1=" + n1 + ", disciplina2=" + disciplina2 + ", n2=" + n2
+				+ ", disciplina3=" + disciplina3 + ", n3=" + n3 + "]";
+	}
+	
 }

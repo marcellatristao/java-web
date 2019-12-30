@@ -43,5 +43,9 @@ public class Aluno {
 		this.numeroCpf = numeroCpf;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", dataNascimento=" + dataNascimento + ", matricula=" + matricula
+				+ ", numeroCpf=" + numeroCpf + "]";
+	}
 }

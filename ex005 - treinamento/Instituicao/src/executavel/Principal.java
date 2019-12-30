@@ -28,5 +28,6 @@ public class Principal {
 		aluno.setMatricula(matricula);
 		aluno.setNumeroCpf(numeroCpf);
 		
+		System.out.println(aluno.toString());
 	}
 }
