@@ -1,5 +1,8 @@
 package cursojava.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*Classe/Objeto que representa o aluno*/
 public class Aluno {
 
@@ -15,15 +18,16 @@ public class Aluno {
 	private String serieMatriculada;
 	private boolean aprovado;
 	
-	private Disciplina disciplina = new Disciplina();
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+	
+	
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 	
-	public Disciplina getDisciplina() {
-		return disciplina;
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
 	}
-	
 	
 	//Sempre que o new é utilizado o comando abaixo é criado vazio por padrão
 	
@@ -128,7 +132,7 @@ public class Aluno {
 	
 	/*Método que retorna a média do aluno*/
 	public double getMediaNota() {
-		return(disciplina.getNota1() + disciplina.getNota2() + disciplina.getNota3() + disciplina.getNota4()) / 4;
+		return 0;
 	}
 	
 	public boolean getAprovado() {
@@ -145,7 +149,7 @@ public class Aluno {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
 				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculada="
-				+ serieMatriculada + ", aprovado=" + aprovado + ", disciplina=" + disciplina + "]";
+				+ serieMatriculada + ", aprovado=" + aprovado + "]";
 	}
 
 	/*
