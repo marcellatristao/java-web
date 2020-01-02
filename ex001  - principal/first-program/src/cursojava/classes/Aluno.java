@@ -18,8 +18,8 @@ public class Aluno {
 	private String serieMatriculada;
 	private boolean aprovado;
 	
-	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-	
+	/*Criando um array para alocar as disciplinas referentes ao aluno*/
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>(); //Lista de disciplinas do aluno
 	
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
@@ -132,12 +132,18 @@ public class Aluno {
 	
 	/*Método que retorna a média do aluno*/
 	public double getMediaNota() {
-		return 0;
+		
+		double somaNotas = 0.0;
+		
+		for (Disciplina disciplina : disciplinas) {
+			somaNotas += disciplina.getNota();	
+		}
+		return somaNotas/disciplinas.size(); //size retorna quantas disciplinas tem no array
 	}
 	
 	public boolean getAprovado() {
 		double media = this.getMediaNota();
-		if(media >= 60) {
+		if(media >= 70) {
 			return true;
 		}else {
 			return false;
@@ -151,19 +157,4 @@ public class Aluno {
 				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculada="
 				+ serieMatriculada + ", aprovado=" + aprovado + "]";
 	}
-
-	/*
-	 * @Override public int hashCode() { final int prime = 31; int result = 1;
-	 * result = prime * result + ((nome == null) ? 0 : nome.hashCode()); result =
-	 * prime * result + ((numeroCpf == null) ? 0 : numeroCpf.hashCode()); return
-	 * result; }
-	 * 
-	 * @Override public boolean equals(Object obj) { if (this == obj) return true;
-	 * if (obj == null) return false; if (getClass() != obj.getClass()) return
-	 * false; Aluno other = (Aluno) obj; if (nome == null) { if (other.nome != null)
-	 * return false; } else if (!nome.equals(other.nome)) return false; if
-	 * (numeroCpf == null) { if (other.numeroCpf != null) return false; } else if
-	 * (!numeroCpf.equals(other.numeroCpf)) return false; return true; }
-	 */
-	
 }
