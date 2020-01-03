@@ -16,7 +16,8 @@ public class Aluno {
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculada;
-	private boolean aprovado;
+	private boolean alunoAprovado;
+	private String alunoAprovado2;
 	
 	/*Criando um array para alocar as disciplinas referentes ao aluno*/
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>(); //Lista de disciplinas do aluno
@@ -119,11 +120,11 @@ public class Aluno {
 
 	
 	public void setAprovado(boolean aprovado) {
-		this.aprovado = aprovado;
+		this.alunoAprovado = alunoAprovado;
 	}
 	
 	public boolean getaprovado() {
-		return aprovado;
+		return alunoAprovado;
 	}
 
 	
@@ -141,12 +142,25 @@ public class Aluno {
 		return somaNotas/disciplinas.size(); //size retorna quantas disciplinas tem no array
 	}
 	
-	public boolean getAprovado() {
+	public boolean getAlunoAprovado() {
 		double media = this.getMediaNota();
 		if(media >= 70) {
 			return true;
 		}else {
 			return false;
+		}
+	}
+	
+	public String getAlunoAprovado2(){
+		double media = this.getMediaNota();
+		if(media >= 50) {
+			if(media >= 70) {
+				return "Aluno aprovado";
+			}else{
+				return "Aluno em Recuperação";
+			}
+		}else {
+			return "Aluno Reprovado";
 		}
 	}
 
@@ -155,6 +169,7 @@ public class Aluno {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
 				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculada="
-				+ serieMatriculada + ", aprovado=" + aprovado + "]";
+				+ serieMatriculada + ", alunoAprovado=" + alunoAprovado + ", alunoAprovado2=" + alunoAprovado2
+				+ ", disciplinas=" + disciplinas + "]";
 	}
 }
