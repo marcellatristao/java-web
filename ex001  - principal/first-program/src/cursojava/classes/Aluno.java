@@ -6,15 +6,8 @@ import java.util.List;
 import cursojava.constantes.StatusAluno;
 
 /*Classe/Objeto que representa o aluno*/
-public class Aluno {
+public class Aluno extends Pessoa{
 
-	private String nome;
-	private int idade;
-	private String dataNascimento;
-	private String registroGeral;
-	private String numeroCpf;
-	private String nomeMae;
-	private String nomePai;
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculada;
@@ -174,4 +167,32 @@ public class Aluno {
 				+ serieMatriculada + ", alunoAprovado=" + alunoAprovado + ", alunoAprovado2=" + alunoAprovado2
 				+ ", disciplinas=" + disciplinas + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (alunoAprovado ? 1231 : 1237);
+		result = prime * result + ((alunoAprovado2 == null) ? 0 : alunoAprovado2.hashCode());
+		result = prime * result + ((dataMatricula == null) ? 0 : dataMatricula.hashCode());
+		result = prime * result + ((disciplinas == null) ? 0 : disciplinas.hashCode());
+		result = prime * result + ((nomeEscola == null) ? 0 : nomeEscola.hashCode());
+		result = prime * result + ((serieMatriculada == null) ? 0 : serieMatriculada.hashCode());
+		return result;
+	}
+
+	@Override /*Identifica método sobreescrito -> É um método que já existe na superclasse e está sendo sobreescrito na subclasse*/
+	public boolean pessoaMaiorIdade() {
+		return idade >= 21;
+	}
+	
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "Aluno maior de idade" : "Aluno menor idade";
+	}
+
+	@Override
+	public double salario() {
+		return 1500.90;
+	}
+	
 }
