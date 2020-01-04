@@ -5,9 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classes.Secretario;
+import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasseJava {
 
@@ -16,12 +19,9 @@ public class PrimeiraClasseJava {
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
-		Secretario secretario = new Secretario();
-		secretario.setLogin(login);
-		secretario.setSenha(senha);
+		PermitirAcesso permitirAcesso = new Secretario(login, senha);
 		
-		
-		if (secretario.autenticar()) /*Se true acessa*/
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) /*Se true acessa*/
 		{
 		
 		// new Aluno() é uma instancia/ criação de um objeto!!
