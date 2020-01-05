@@ -36,8 +36,8 @@ public class PrimeiraClasseJava {
 		  
 		for(int qtd=1; qtd<=3; qtd++) {
 		  String nome = JOptionPane.showInputDialog("NOME DO ALUNO "+qtd+" ?"); 
-		  /*String idade = JOptionPane.showInputDialog("IDADE: "); 
-		  String dataNascimento = JOptionPane.showInputDialog("DATA DE NASCIMENTO: "); 
+		  String idade = JOptionPane.showInputDialog("IDADE: "); 
+		  /*String dataNascimento = JOptionPane.showInputDialog("DATA DE NASCIMENTO: "); 
 		  String registroGeral = JOptionPane.showInputDialog("RG: "); 
 		  String numeroCpf =JOptionPane.showInputDialog("CPF: "); 
 		  String nomeMae = JOptionPane.showInputDialog("NOME DA MÃE: "); 
@@ -49,8 +49,8 @@ public class PrimeiraClasseJava {
 		  Aluno aluno1 = new Aluno(); //Objeto aluno 1
 		  
 		  aluno1.setNome(nome); 
-		  /*aluno1.setIdade(Integer.valueOf(idade));
-		  aluno1.setDataNascimento(dataNascimento);
+		  aluno1.setIdade(Integer.valueOf(idade));
+		  /*aluno1.setDataNascimento(dataNascimento);
 		  aluno1.setRegistroGeral(registroGeral); 
 		  aluno1.setNumeroCpf(numeroCpf);
 		  aluno1.setNomeMae(nomeMae); 
@@ -150,6 +150,9 @@ public class PrimeiraClasseJava {
 			}
 			
 			JOptionPane.showMessageDialog(null, "Erro ao processar notas" +saida.toString());
+			
+		}finally { /*Sempre é executado ocorrendo erros ou não*/
+			JOptionPane.showMessageDialog(null, "Obrigada por utilizar este programa!");
 		}
 	}
 }
