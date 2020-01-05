@@ -16,6 +16,8 @@ public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
 
+		try {
+		
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
@@ -127,6 +129,27 @@ public class PrimeiraClasseJava {
 		}
 	}else{
 		JOptionPane.showMessageDialog(null, "Acesso não autorizado!");
+		}
+		
+		}catch (Exception e) {
+			
+			StringBuilder saida = new StringBuilder();
+			
+			/*Impime o erro no console Java*/
+			e.printStackTrace();
+			
+			/*Causda do erro*/
+			System.out.println(" Mensagem: " +e.getMessage());
+			
+			for(int i=0; i< e.getStackTrace().length; i++) {
+				
+				saida.append("\nClasse de erro: " +e.getStackTrace()[i].getClassName());
+				saida.append("\nClasse de erro: " +e.getStackTrace()[i].getMethodName());
+				saida.append("\nClasse de erro: " +e.getStackTrace()[i].getLineNumber());
+				saida.append("\nClasse de erro: " +e.getClass().getName());
+			}
+			
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas" +saida.toString());
+		}
 	}
-}
 }
