@@ -26,7 +26,7 @@ public class PrimeiraClasseJava {
 		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) /*Se true acessa*/
 		{
 		
-		// new Aluno() é uma instancia/ criação de um objeto!!
+		// new Aluno() é uma instancia/ criação de um objeto!!	
 		// aluno1 é uma referência para o aluno
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();

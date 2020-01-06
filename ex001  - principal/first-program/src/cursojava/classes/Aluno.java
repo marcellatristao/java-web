@@ -132,8 +132,9 @@ public class Aluno extends Pessoa{
 		double somaNotas = 0.0;
 		
 		for (Disciplina disciplina : disciplinas) {
-			somaNotas += disciplina.getNota();	
+			somaNotas += disciplina.getMediaNotas();	
 		}
+		
 		return somaNotas/disciplinas.size(); //size retorna quantas disciplinas tem no array
 	}
 	
