@@ -16,135 +16,93 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TelaTimeThread extends JDialog{
+public class TelaTimeThread extends JDialog {
 	
-	private JPanel jPanel = new JPanel (new GridBagLayout()); /*Painel de componentes*/
+	private JPanel jPanel = new JPanel(new GridBagLayout()); /*Painel de componentes*/
 	
-	private JLabel descricaoHora = new JLabel("Time Thread 1");
+	private JLabel descricaoHora = new JLabel("Nome: ");
 	private JTextField mostraTempo = new JTextField();
 	
-	private JLabel descricaoHora2 = new JLabel("Time Thread 1");
+	private JLabel descricaoHora2 = new JLabel("E-mail");
 	private JTextField mostraTempo2 = new JTextField();
 	
-	private JButton jButton = new JButton("Start");
+	private JButton jButton = new JButton("Adicionars");
 	private JButton jButton2 = new JButton("Stop");
+
+	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
 	
-	private Runnable thread1 = new Runnable() {
+	public TelaTimeThread() { /*Executa o que tiver dentro no momento da abertura ou execução*/
+		 setTitle("Minha tela de time com Thread");
+		 setSize(new Dimension(240, 240));
+		 setLocationRelativeTo(null);
+		 setResizable(false);
+		 /*Primeira parte concluida*/
 		
-		@Override
-		public void run() {
-			while (true) { /*Fica sempre rodando até o processo parar*/
-				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").
-						format(Calendar.getInstance().getTime()));
-				
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	};
-	
-	private Runnable thread2 = new Runnable() {
-		
-		@Override
-		public void run() {
-			while (true) { /*Fica sempre rodando até o processo parar*/
-				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").
-						format(Calendar.getInstance().getTime()));
-				
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	};
-	
-	
-	private Thread thread1Time;
-	private Thread thread2Time;
-	
-	
-	public TelaTimeThread() {
-		
-		setTitle("Tela time com thread");
-		setSize(new Dimension(240, 240));
-		setLocationRelativeTo(null);
-		setResizable(false);
-		/*Primeira parte  <<<<<<*/
-		
-		
-		GridBagConstraints gridBagConstraints = new GridBagConstraints(); /*Controlador de posicionamento de componetes*/
-		gridBagConstraints.gridx = 0; //linha
-		gridBagConstraints.gridy = 0; //coluna
-		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.insets = new Insets(5, 10, 5, 5);
-		
-		descricaoHora.setPreferredSize(new Dimension(200,25));
-		jPanel.add(descricaoHora, gridBagConstraints);
-		
-		mostraTempo.setPreferredSize(new Dimension(200,25));
-		gridBagConstraints.gridy ++;
-		mostraTempo.setEditable(false);
-		jPanel.add(mostraTempo, gridBagConstraints);
-		
-		/*--------------------------------------------------------*/
-		
-		descricaoHora2.setPreferredSize(new Dimension(200,25));
-		gridBagConstraints.gridy ++;
-		jPanel.add(descricaoHora2, gridBagConstraints);
-		
-		mostraTempo2.setPreferredSize(new Dimension(200,25));
-		gridBagConstraints.gridy ++;
-		mostraTempo2.setEditable(false);
-		jPanel.add(mostraTempo2, gridBagConstraints);
-		
-		gridBagConstraints.gridwidth = 1;
-		
-		jButton.setPreferredSize(new Dimension(92,25));
-		gridBagConstraints.gridy ++;
-		jPanel.add(jButton, gridBagConstraints);
-		
-		jButton2.setPreferredSize(new Dimension (92,25));
-		gridBagConstraints.gridx ++;
-		jPanel.add(jButton2, gridBagConstraints);
-		
-		jButton.addActionListener(new ActionListener() {
+		 
+		 GridBagConstraints gridBagConstraints  = new GridBagConstraints();/*Controlar de posicionamento de componetes*/
+		 gridBagConstraints.gridx = 0;
+		 gridBagConstraints.gridy = 0;
+		 gridBagConstraints.gridwidth = 2;
+		 gridBagConstraints.insets = new Insets(5, 10, 5, 5);
+		 gridBagConstraints.anchor = GridBagConstraints.WEST;
+		 
+		 descricaoHora.setPreferredSize( new Dimension(200, 25));
+		 jPanel.add(descricaoHora, gridBagConstraints);
+		 
+		 
+		 mostraTempo.setPreferredSize(new Dimension(200, 25));
+		 gridBagConstraints.gridy ++;
+		 jPanel.add(mostraTempo, gridBagConstraints);
+		 
+		 descricaoHora2.setPreferredSize(new Dimension(200, 25));
+		 gridBagConstraints.gridy ++;
+		 jPanel.add(descricaoHora2, gridBagConstraints);
+		 
+		 mostraTempo2.setPreferredSize(new Dimension(200, 25));
+		 gridBagConstraints.gridy++;
+		 jPanel.add(mostraTempo2, gridBagConstraints);
+		 
+		 
+		 //*************************************
+		 
+		 gridBagConstraints.gridwidth = 1;
+		 
+		 jButton.setPreferredSize(new Dimension(92, 25));
+		 gridBagConstraints.gridy ++;
+		 jPanel.add(jButton, gridBagConstraints);
+		 
+		 jButton2.setPreferredSize(new Dimension(92, 25));
+		 gridBagConstraints.gridx ++;
+		 jPanel.add(jButton2, gridBagConstraints);
+		 
+		 
+		 jButton.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-			
-				thread1Time = new Thread(thread1);
-				thread1Time.start();
-				
-				thread2Time = new Thread(thread2);
-				thread2Time.start();
-				
-				jButton.setEnabled(false);
-				jButton.setEnabled(true);
+			public void actionPerformed(ActionEvent e) { /*Executa o clique no botão*/
 			}
 		});
-		
-		
+		 
 		jButton2.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				thread1Time.stop();
-				thread2Time.stop();
-				
-				jButton.setEnabled(false);
-				jButton.setEnabled(true);
-				
+			
+			for(int qtd = 0; qtd>100; qtd++) {	
+			ObjetoFilaThread filaThread = new ObjetoFilaThread();
+			filaThread.setNome(mostraTempo.getText());
+			filaThread.setEmail(mostraTempo2.getText() + " - " +qtd);
+			
+			fila.add(filaThread);
 			}
-		});
+						
+			}
+		}); 
 		
-		jButton2.setEnabled(false);
-		
-		add(jPanel, BorderLayout.CENTER);
-		setVisible(true); /*Sempre será o ultimo comando*/
+		fila.start();
+		add(jPanel, BorderLayout.WEST);
+		/*Sempre será o ultimo comando*/
+		setVisible(true);/*Torna a tela visivel para o usuário*/
 	}
-	
+
 }
